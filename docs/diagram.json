@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "author": "Selva Neyas Uthaya Nagarajan",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 57.6, "left": -4.76, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 54,
+      "left": 282.2,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -27.3,
+      "left": -196.1,
+      "attrs": { "distance": "48" }
+    },
+    { "type": "wokwi-slide-switch", "id": "sw1", "top": -14.8, "left": 214.3, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -95.7,
+      "left": 4.2,
+      "attrs": { "humidity": "36.5", "temperature": "40" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 21.6,
+      "left": 385.8,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "led1:A", "esp:2", "green", [ "v0" ] ],
+    [ "sw1:2", "esp:GND.3", "black", [ "v0" ] ],
+    [ "sw1:1", "led1:C", "black", [ "v0" ] ],
+    [ "esp:5", "sw1:3", "red", [ "h0" ] ],
+    [ "ultrasonic1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "ultrasonic1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "ultrasonic1:TRIG", "esp:4", "blue", [ "v182.4", "h306.8", "v-86.4" ] ],
+    [ "ultrasonic1:ECHO", "esp:0", "gold", [ "v172.8", "h277.6", "v-67.2" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "h-28.8", "v67.2" ] ],
+    [ "dht1:GND", "esp:GND.3", "black", [ "h67.2", "v124.8" ] ],
+    [ "dht1:SDA", "esp:15", "cyan", [ "v28.8", "h105.7", "v48" ] ],
+    [ "esp:16", "bz1:2", "magenta", [ "h0" ] ],
+    [ "esp:GND.2", "bz1:1", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
