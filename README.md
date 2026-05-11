@@ -1,61 +1,32 @@
-IoT Smart Monitoring System (ESP32, Wokwi Simulation)
+# Smart Campus Waste Management System
 
-Overview
+An IoT-based waste bin monitoring system using ESP32 and Blynk.
 
-This project demonstrates an ESP32-based IoT monitoring system simulated on Wokwi. It integrates multiple sensors and actuators to provide environmental monitoring and alert mechanisms.
+## Features
+- Ultrasonic sensor to detect bin fill level
+- DHT22 for temperature & humidity monitoring
+- LCD display showing live readings
+- Buzzer + LED alert when bin is full
+- Remote monitoring via Blynk app
 
-Features
+## Hardware Used
+- ESP32 DevKit C V4
+- HC-SR04 Ultrasonic Sensor
+- DHT22 Temperature & Humidity Sensor
+- LCD 16x2 (I2C)
+- Buzzer
+- LEDs
 
-Ultrasonic Sensor (HC-SR04): Measures distance.
+## Simulate on Wokwi
+https://wokwi.com/projects/399048781614584833
 
-DHT22 Sensor: Monitors temperature and humidity.
+## Libraries Required
+- Blynk
+- DHT sensor library
+- LiquidCrystal I2C
 
-LED (limegreen): Visual indicator.
-
-Buzzer: Audible alerts.
-
-Slide Switch: Manual control.
-
-Circuit Diagram
-
-The circuit includes ESP32 DevKit, ultrasonic sensor, DHT22, LED, buzzer, and switch. The wiring is defined in diagram.json. A screenshot of the circuit can be added under /docs/diagram.png.
-
-Simulation
-
-▶️ Run on Wokwi
-
-Libraries Used
-
-Blynk
-
-DHT sensor library
-
-DHT sensor library for ESPx
-
-LiquidCrystal I2C
-
-How to Run
-
-Clone the repository.
-
-Open in Arduino IDE or PlatformIO.
-
-Install required libraries listed in libraries.txt.
-
-Upload the code to ESP32.
-
-Repository Structure
-
-/project-root
-  ├── src/                # Main code files
-  ├── docs/               # Diagrams, documentation, screenshots
-  ├── libraries.txt       # Dependencies list
-  ├── diagram.json        # Wokwi circuit diagram
-  ├── wokwi-project.txt   # Simulation link (optional)
-  └── README.md           # Project overview
-
-Future Improvements
-
-Add cloud logging (Firebase/MQTT).
-
-Expand sensor set (gas sensor, motion sensor).
+## Setup
+1. Install libraries listed in `libraries.txt`
+2. Replace `YOUR_BLYNK_AUTH_TOKEN_HERE` in `sketch.ino` with your actual token
+3. Update WiFi credentials in `sketch.ino`
+4. Upload to ESP32
