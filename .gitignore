@@ -1,0 +1,8 @@
+# Secrets — never commit real credentials
+secrets.h
+config.h
+
+# Arduino build output
+build/
+*.bin
+*.elf
